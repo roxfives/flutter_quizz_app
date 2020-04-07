@@ -9,7 +9,6 @@ class MyApp extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return _MyAppState();
   }
 }
@@ -17,7 +16,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   
   var _questionIndex = 0;
-  var _questions = [
+  final _questions = const [
         {
           'questionText': 'What\'s your favorite color?',
           'answers': ['Black', 'Red', 'Green', 'White'],
@@ -37,6 +36,10 @@ class _MyAppState extends State<MyApp> {
       _questionIndex++;
       _questionIndex %= _questions.length;
     });
+
+    if (_questionIndex < _questions.length) {
+      print('We have more questions');
+    }
 
     print(_questionIndex);
     print('Answer chosen!');
